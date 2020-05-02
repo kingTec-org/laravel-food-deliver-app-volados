@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>GoferGrocery &#8250; ReadMe</title>
+	<link rel="stylesheet" href="readme.css" type="text/css" />
+</head>
+<body>
+<h1 id="logo">
+	<a href="https://www.trioangle.com/ubereats-clone/"></a>
+	<br /> Version 1.0
+</h1>
+
+<h2>Installation: Famous 2-minute install</h2>
+<ol>
+	<li>Unzip the package in an empty directory and upload everything.</li>
+	<li>Open <span class="file"><a href="../install">install</a></span> in your browser. It will take you through the process to set up a <code>.env</code> file with your database connection details.
+		<ol>
+			<li>If for some reason this doesn&#8217;t work, don&#8217;t worry. It doesn&#8217;t work on all web hosts. Open up <code>.env.example</code> with a text editor like WordPad or similar and fill in your database connection details.</li>
+			<li>Save the file as <code>.env</code> and upload it.</li>
+			<li>Open <span class="file"><a href="../install">install</a></span> in your browser.</li>
+		</ol>
+	</li>
+	<li>Once the configuration file is set up, the installer will set up the tables needed for your site. If there is an error, double check your <code>.env</code> file, and try again.
+</ol>
+
+
+
+<h2>System Requirements (Enterprise)</h2>
+<ul>
+	<li><a href="http://php.net/">PHP</a> version <strong> 5.6 </strong> or higher.</li>
+	<li><a href="http://www.mysql.com/">MySQL</a>.</li>
+	<li>The <a href="http://php.net/manual/en/book.openssl.php">OpenSSL</a> PHP module.</li>
+	<li>The <a href="http://php.net/manual/en/book.pdo.php">PDO</a> PHP module.</li>
+	<li>The <a href="http://php.net/manual/en/book.mbstring.php">mbstring</a> PHP module.</li>
+	<li>The <a href="http://php.net/manual/en/book.tokenizer.php">Tokenizer</a> PHP module.</li>
+	<li>The mod_rewrite, mod_gzip, mod_filter and mod_expires modules.</li>
+</ul>
+
+<h2>API Settings</h2>
+You can enter your api credentials in Admin panel in <a href="../admin/site_setting">API Credentials</a> page.
+
+
+<h2>Email Settings</h2>
+<h4>SMTP</h4>
+You can enter your SMTP credentials in Admin panel in <a href="../admin/site_setting">Email Settings</a> page. <a href="https://trioangle.com/blog/how-to-create-gmail-smtp-credential/" target="blank">Instructions</a>
+
+<h2>Cron Jobs</h2>
+You have to configure the below Cron Job in your server.
+<ul>
+	<li><code>* * * * * php PATH/artisan schedule:run >> /dev/null 2>&1</code></li>
+	<li>The above Cron Job is for updating Currency Rates(Daily), iCal Synchronization(Hourly), updating Expired Reservations(Hourly), Updating Travel Credit(Daily) and Task Queueing(Every Minute).</li>
+	<li>And the above Cron Job is for Files, Database and Cleanup backup(Monthly, Daily and Monthly). Backup files will be saved in <code>PATH/storage/app/</code> folder.</li>
+</ul>
+
+
+<h2>API testing tool and documentation </h2>
+
+<a href="https://documenter.getpostman.com/view/682036/RW8CHTWm" target="_blank">API Documentation</a>
+
+<p>Api Testing Tool</p>
+
+
+<div class="postman-run-button"
+data-postman-action="collection/import"
+data-postman-var-1="ce4e57a3e4cb44447396"></div>
+
+
+<h2>Final Notes</h2>
+<ul>
+	<li>Once you have reached the Google's daily limit quotas, you have to pay some amount for unlock Google services.</li>
+	<li>If you have any suggestions, ideas, or comments, or if you (gasp!) found a bug, send email to sales@trioangle.com or support@trioangle.com.</li>
+</ul>
+
+<h2>License</h2>
+<p>GoferGrocery has license for this package. See <a href="../End User License Agreement - GoferEats.pdf">End User License Agreement.pdf</a>.</p>
+
+</body>
+</html>
+
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>

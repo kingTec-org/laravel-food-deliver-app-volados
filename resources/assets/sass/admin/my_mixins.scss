@@ -1,0 +1,73 @@
+@mixin input-focus {
+  &:focus {
+  border: 1px solid #262626;
+  box-shadow: none;
+  outline: 0;
+  }
+}
+
+@mixin border-none() {
+    border: 0;
+}
+
+@mixin border-default() {
+    border: 1px solid $border-color;
+}
+
+@mixin custom-border($border-value, $border-style, $border-color) {
+    border: $border-value $border-style $border-color;
+}
+
+@mixin custom-border-left($border-value, $border-style, $border-color) {
+    border-left: $border-value $border-style $border-color;
+}
+
+@mixin custom-border-right($border-value, $border-style, $border-color) {
+    border-right: $border-value $border-style $border-color;
+}
+
+@mixin custom-border-top($border-value, $border-style, $border-color) {
+    border-top: $border-value $border-style $border-color;
+}
+
+@mixin custom-border-bottom($border-value, $border-style, $border-color) {
+    border-bottom: $border-value $border-style $border-color;
+}
+
+@mixin border-width($border-top,$border-right,$border-bottom,$border-left) {
+    border-width: $border-top $border-right $border-bottom $border-left;
+}
+
+@mixin border-top-bottom() {
+    border: 1px solid $border-color;
+    border-width: 1px 0;
+}
+
+@mixin border-left-right() {
+    border: 1px solid $border-color;
+    border-width: 0 1px;
+}
+
+@mixin border-top() {
+    border: 1px solid $border-color;
+    border-width: 1px 0 0 0;
+}
+
+@mixin border-bottom() {
+   border: 1px solid $border-color;
+   border-width: 0 0 1px 0;
+}
+
+@mixin border-left() {
+    border: 1px solid $border-color;
+    border-width: 0 0 0 1px;
+}
+
+@mixin border-right() {
+   border: 1px solid $border-color;
+   border-width: 0 1px 0 0;
+}
+
+@mixin border-color($border-color) {
+   border-color: $border-color;
+}
