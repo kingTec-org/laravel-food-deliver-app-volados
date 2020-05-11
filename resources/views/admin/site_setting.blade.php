@@ -106,11 +106,12 @@
                       <label class="col-md-4 col-form-label">@lang('admin_messages.default_currency')<span class="required text-danger">*</span></label>
                       <div class="col-md-5">
                         <div class="form-group">
-                           {!! Form::select('site_setting[default_currency]', $currency, site_setting('default_currency'), ['class' => 'form-control', 'id' => 'input_version','disabled'=>'true']) !!}
+                          <!--  {!! Form::select('site_setting[default_currency]', $currency, site_setting('default_currency'), ['class' => 'form-control', 'id' => 'input_version','disabled'=>'true']) !!} -->
+                          {!! Form::text('site_setting[default_currency]', site_setting('default_currency'), ['class' => 'form-control', 'id' => 'input_version','readonly'=>'readonly']) !!}
                     <span class="text-danger">{{ $errors->first('default_currency') }}</span>
-                         {{--   {!! Form::text('site_setting[default_currency]', site_setting('default_currency'), ['class' => 'form-control', 'id' => 'input_version','readonly'=>'readonly']) !!}
+                          
                                                   
-                                                                            <span class="text-danger">{{ $errors->first('default_currency') }}</span>--}}
+                                                                         {{--   <span class="text-danger">{{ $errors->first('default_currency') }}</span>--}}
                         </div>
                       </div>
                     </div>

@@ -23,11 +23,11 @@ class CreateUserTable extends Migration {
 		}
 
 		Schema::create($this->set_schema_table, function (Blueprint $table) {
-			$table->increments('id')->nullable();
+			$table->increments('id');
 			$table->tinyInteger('type')->nullable();
 			$table->string('name', 50);
 			$table->string('user_first_name', 50)->nullable();
-            $table->string('user_last_name', 50)->nullable();
+			$table->string('user_last_name', 50)->nullable();
 			$table->string('email', 50)->nullable();
 			$table->string('password', 100)->nullable();
 			$table->date('date_of_birth')->nullable();

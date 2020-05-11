@@ -16,9 +16,9 @@ class OrderDataTable extends DataTable {
 		return datatables($query)
 			->addColumn('action', function ($query) {
 				if (get_current_login_user() == 'admin') {
-					return '<a title="' . trans('admin_messages.edit') . '"  href="' . route('admin.edit_order', $query->id) . '" ><i class="material-icons">edit</i></a>';
+					return '<a title="' . trans('admin_messages.edit') . '"  href="' . route('admin.edit_order', $query->id) . '" ><i class="material-icons notranslate">edit</i></a>';
 				} else {
-					return '<a title="' . trans('admin_messages.edit') . '"  href="' . route('store.edit_order', $query->id) . '" ><i class="material-icons">edit</i></a>';
+					return '<a title="' . trans('admin_messages.edit') . '"  href="' . route('store.edit_order', $query->id) . '" ><i class="material-icons notranslate">edit</i></a>';
 				}
 
 			})

@@ -508,7 +508,7 @@ class OrderController extends Controller {
 				return @$orders->status_text;
 			})
 			->addColumn('action', function ($orders) {
-				return '<a title="' . trans('admin_messages.view') . '" href="' . route('admin.view_order', $orders->id) . '" ><i class="material-icons">edit</i></a>';
+				return '<a title="' . trans('admin_messages.view') . '" href="' . route('admin.view_order', $orders->id) . '" ><i class="material-icons notranslate">edit</i></a>';
 
 			});
 		$columns = ['id', 'payment_type', 'user_name', 'store_name', 'total', 'status_text'];

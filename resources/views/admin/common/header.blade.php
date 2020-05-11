@@ -6,12 +6,19 @@
                    <img src="{{site_setting('1','1')}}">
                </a>
            </div>
+
            <div class="sidebar-wrapper">
+
             <div class="user">
+            <div>
+            <div  id="google_translate_element" class="google-translate-element"></div> 
+
+            </div>
+            <div class="clear"><br/></div>
                 <div class="photo">
                     <img src="{{asset('admin_assets/img/faces/avatar.jpg')}}" />
                 </div>
-                <div class="user-info">
+                <div class="user-info">  
                     <a  href="{{route('admin.edit_admin',['id' => auth()->guard('admin')->user()->id])}}" class="username">
                         <span>
                             {{auth()->guard('admin')->user()->username}}
@@ -47,11 +54,12 @@
                     </div>
                 </div>
             </div>
+
             <ul class="nav">
                 @foreach(side_navigation() as $navigation_name => $navigation_value)
                 <li class="nav-item {{($navigation_value['active']) ? 'active' : ''}}">
                     <a class="nav-link" href="{{$navigation_value['route']}}">
-                        <i class="material-icons">{{$navigation_value['icon']}}
+                        <i class="material-icons notranslate">{{$navigation_value['icon']}}
                         </i>
                         <p> 
                         {{$navigation_value['name']}}
@@ -77,6 +85,7 @@
                     </div>
                     <a class="navbar-brand" href="#pablo">{{@$form_name}}
                     </a>
+                   <!--  <div id="google_translate_element" class="google-translate-element"></div> -->
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation
@@ -102,6 +111,7 @@
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#pablo" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons">person

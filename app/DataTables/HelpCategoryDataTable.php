@@ -35,7 +35,7 @@ class HelpCategoryDataTable extends DataTable
                 return $help_category->type_text;
             })
             ->addColumn('action', function ($help_category) {
-                return '<a title="' . trans('admin_messages.edit_help_category') . '" href="' . route('admin.edit_help_category', $help_category->id) . '" ><i class="material-icons">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete_help_category') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_help_category', $help_category->id) . '"><i class="material-icons">close</i></a>';
+                return '<a title="' . trans('admin_messages.edit_help_category') . '" href="' . route('admin.edit_help_category', $help_category->id) . '" ><i class="material-icons notranslate">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete_help_category') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_help_category', $help_category->id) . '"><i class="material-icons notranslate">close</i></a>';
             });
            
     }

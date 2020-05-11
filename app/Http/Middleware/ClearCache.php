@@ -38,11 +38,11 @@ class ClearCache {
 			date_default_timezone_set($timezone);
 		} else {
 
-			date_default_timezone_set('Asia/Calcutta');
+			date_default_timezone_set('America/Tegucigalpa');
 
-			Session::put('time_zone', 'Asia/Calcutta');
-			Session::put('country_code', 'IN');
-			$phone_code = Country::where('code', 'IN')->first()->phone_code;
+			Session::put('time_zone', 'America/Tegucigalpa');
+			Session::put('country_code', 'AS');
+			$phone_code = Country::where('code', 'AS')->first()->phone_code;
 			Session::put('phone_code', $phone_code);
 
 		}

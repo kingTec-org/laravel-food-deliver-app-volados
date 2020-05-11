@@ -79,9 +79,11 @@ class StartServiceProvider extends ServiceProvider
 	{
 
 		// Language lists for footer
-        $language = Language::translatable()->whereIn('value',['en','ar','pt'])->pluck('name', 'value');
+        $language = Language::translatable()->whereIn('value',['es','en','ar','pt'])->pluck('name', 'value');       
+        $language = array('es'=>'Español','en'=>'English','pt'=>'Português','ar'=>'ةيبرعلا');
         View::share('language', $language);  
         $language = Language::translatable()->get();
+
         View::share('lang', $language);
 		
 		// Default Language for footer
@@ -89,13 +91,14 @@ class StartServiceProvider extends ServiceProvider
         View::share('default_language', $default_language);
         
         if(Request::segment(1) == ADMIN_URL){
-		$default_language = Language::translatable()->where('value', 'en')->get();
+		$default_language = Language::translatable()->where('value', 'es')->get();
 		
 		}
 
         if($default_language->count() > 0) {
         	
 			Session::put('language', $default_language[0]->value);
+
 			\Log::info('start');
 			App::setLocale($default_language[0]->value);
 		}
@@ -112,7 +115,7 @@ class StartServiceProvider extends ServiceProvider
         
         
         define('ADMIN_URL', $site_settings[46]->value);
-        
+        date_default_timezone_set('America/Tegucigalpa');
 
         
     }

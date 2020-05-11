@@ -1,3 +1,6 @@
+$("i").addClass("notranslate");
+
+
 $(document).on('click', '.confirm-delete', function () {
   var url = $(this).attr('data-href');
   swal({
@@ -65,6 +68,8 @@ $.validator.addMethod('greate_then', function(value, element, param) {
       return 'false';
     }
     }, 'The start time should be less than the end time');
+
+
 app.controller('cancelOrderController', ['$scope', '$http', '$compile', '$timeout', function($scope, $http, $compile, $timeout) {
 
       var $validator = $('#order_cancel_form').validate({
@@ -697,6 +702,8 @@ function fetchMapAddress(data)
     $scope.longitude = place.geometry.location.lng();
     $scope.is_auto_complete = 1;
     $scope.$apply();
+    $('.addresss_latitude').val($scope.latitude);
+    $('.addresss_longitude').val($scope.longitude);
 }   
 
 $('#location_val').keyup(function(){

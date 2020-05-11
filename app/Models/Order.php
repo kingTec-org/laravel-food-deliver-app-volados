@@ -17,6 +17,8 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Log;
 use App;
+use App\Models\User;
+use App\Models\Store;
 class Order extends Model {
 
 	/**
@@ -578,9 +580,11 @@ class Order extends Model {
 		//$getLocale = App::getLocale();
 		
 		if ($this->schedule_status == 0) {
+			$storedetails = Store::where('id',$this->store_id)->first();
 
 			$user = $this->user;
-			$push_notification_title = trans('api_messages.orders.item_preparation_order',array(),$getUserLocale) . $this->id;
+			$push_notification_title = $storedetails->name." ".trans('api_messages.orders.accepted_order',array(),$getUserLocale);
+			//trans('api_messages.orders.item_preparation_order',array(),$getUserLocale) . $this->id;
 			$push_notification_data = [
 				'type' => 'order_accepted',
 				'order_id' => $this->id,
@@ -635,8 +639,13 @@ class Order extends Model {
 
 			$user = $user_type == "eater" ? $this->store->user : $this->user;
 
+			$userdetails = User::where('id',$this->user_id)->first();
+			$storedetails = Store::where('id',$this->store_id)->first();
+
 			$user_type_show = ($user_type=='eater')?'user':$user_type;
-			$push_notification_title = trans('api_messages.orders.your_order_id',array(),$getUserLocale) . $this->id .trans('api_messages.orders.has_been_cancelled',array(),$getUserLocale) . $user_type_show;
+
+			$push_notification_title = trans('api_messages.orders.cancel_od',array(),$getUserLocale)." ".$userdetails->name.'! '.$storedetails->name." ".trans('api_messages.orders.has_been_cancelled',array(),$getUserLocale);
+			//trans('api_messages.orders.your_order_id',array(),$getUserLocale) . $this->id .trans('api_messages.orders.has_been_cancelled',array(),$getUserLocale) . $user_type_show;
 
 			$push_notification_data = [
 				'type' => 'order_cancelled',
@@ -697,7 +706,7 @@ class Order extends Model {
 		$this->save();
 
 		$user = $this->user;
-		$push_notification_title = trans('api_messages.orders.your_order_id',array(),$getUserLocale) . $this->id . trans('api_messages.orders.delay_for',array(),$getUserLocale) . (int) gmdate("i", $seconds) . trans('api_messages.orders.mins',array(),$getUserLocale);
+		$push_notification_title = trans('api_messages.orders.your_order_id',array(),$getUserLocale)." ". $this->id." ". trans('api_messages.orders.delay_for',array(),$getUserLocale)." ".(int) gmdate("i", $seconds) . trans('api_messages.orders.mins',array(),$getUserLocale);
 		$push_notification_data = [
 			'type' => 'order_delayed',
 			'order_id' => $this->id,
@@ -709,7 +718,18 @@ class Order extends Model {
 		if (isset($this->driver_id)) {
 
 			$user = $this->driver->user;
-			$push_notification_title = trans('api_messages.orders.your_pickup_orderId',array(),$getUserLocale) . $this->id . trans('api_messages.orders.delay_for',array(),$getUserLocale) . (int) gmdate("i", $seconds) . trans('api_messages.orders.mins',array(),$getUserLocale);
+
+			$userdetails = User::where('id',$this->user_id)->first();
+			$storedetails = Store::where('id',$this->store_id)->first();
+
+
+
+			$push_notification_title = trans('api_messages.orders.order_delay',array(),$getUserLocale) ." ".$storedetails->name." ". trans('api_messages.orders.delay_for',array(),$getUserLocale) ." ".(int) gmdate("i", $seconds)." ". trans('api_messages.orders.mins',array(),$getUserLocale);
+
+			//trans('api_messages.orders.your_pickup_orderId',array(),$getUserLocale) . $this->id . trans('api_messages.orders.delay_for',array(),$getUserLocale) . (int) gmdate("i", $seconds) . trans('api_messages.orders.mins',array(),$getUserLocale);
+
+
+
 			$push_notification_data = [
 				'type' => 'order_delayed',
 				'order_id' => $this->id,
@@ -754,17 +774,21 @@ class Order extends Model {
 
 	public function delivery_started() {
 		$getUserLocale = $this->getUserLanguage();
+		$driverdetails = User::where('id',$this->driver_id)->first();
 		$user = $this->user;
-		$push_notification_title = trans('api_messages.orders.order_delivery_orderId',array(),$getUserLocale) . $this->id;
+		$push_notification_title = trans('api_messages.orders.order_deliver')." ".$driverdetails->name.", ".trans('api_messages.orders.order_delivery_orderId',array(),$getUserLocale);
+		//trans('api_messages.orders.order_deliver')." ".$driverdetails->name.", ".trans('api_messages.orders.order_delivery_orderId',array(),$getUserLocale) . $this->id;
 		$push_notification_data = [
 			'type' => 'order_delivery_started',
 			'order_id' => $this->id,
 		];
 
+//Tu conductor, driver_firstName, va en camino con tu orden!
 		push_notification($user->device_type, $push_notification_title, $push_notification_data, $user->type, $user->device_id);
 
 		$store = $this->store->user;
-		$push_notification_title = trans('api_messages.orders.order_delivery_orderId',array(),$getUserLocale) . $this->id;
+		$push_notification_title = trans('api_messages.orders.order_deliver')." ".$driverdetails->name.", ".trans('api_messages.orders.order_delivery_orderId',array(),$getUserLocale);
+		//trans('api_messages.orders.order_delivery_orderId',array(),$getUserLocale) . $this->id;
 		$push_notification_data = [
 			'type' => 'order_delivery_started',
 			'order_id' => $this->id,
@@ -786,7 +810,8 @@ class Order extends Model {
 		$this->save();
 
 		$user = $this->user;
-		$push_notification_title = trans('api_messages.orders.order_delivery_completed_orderId',array(),$getUserLocale) . $this->id;
+		$push_notification_title = trans('api_messages.orders.order_delivery_completed_orderId',array(),$getUserLocale);
+		//trans('api_messages.orders.order_delivery_completed_orderId',array(),$getUserLocale) . $this->id;
 		$push_notification_data = [
 			'type' => 'order_delivery_completed',
 			'order_id' => $this->id,
@@ -795,7 +820,8 @@ class Order extends Model {
 		push_notification($user->device_type, $push_notification_title, $push_notification_data, $user->type, $user->device_id);
 
 		$store = $this->store->user;
-		$push_notification_title = trans('api_messages.orders.order_delivery_completed_orderId',array(),$getUserLocale) . $this->id;
+		$push_notification_title = trans('api_messages.orders.order_delivery_completed_orderId',array(),$getUserLocale);
+		//trans('api_messages.orders.order_delivery_completed_orderId',array(),$getUserLocale) . $this->id;
 		$push_notification_data = [
 			'type' => 'order_delivery_completed',
 			'order_id' => $this->id,

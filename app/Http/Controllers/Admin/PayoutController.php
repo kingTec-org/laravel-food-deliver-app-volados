@@ -234,7 +234,7 @@ class PayoutController extends Controller {
 				return @$users->status_text;
 			})
 			->addColumn('action', function ($users) {
-				return '<a title="' . trans('admin_messages.weekly_payout') . '" href="' . route('admin.weekly_payout', $users->id) . '" ><i class="material-icons">library_books</i></a>';
+				return '<a title="' . trans('admin_messages.weekly_payout') . '" href="' . route('admin.weekly_payout', $users->id) . '" ><i class="material-icons notranslate">library_books</i></a>';
 
 			});
 		$columns = ['id', 'name', 'total_paid_amount', 'total_earnings_amount', 'status_text'];

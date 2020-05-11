@@ -29,8 +29,8 @@ class WithOutLoginLocale
                 }
             else
             {
-                App::setLocale('en');
-                $language = 'en';
+                App::setLocale('es');
+                $language = 'es';
             }
                 Session::put('language', $language);
                 

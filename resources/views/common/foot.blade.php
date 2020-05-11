@@ -13,7 +13,7 @@
 </script>
 
 <!--  Google Maps Plugin  -->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key={{site_setting('google_api_key')}}&libraries=places&sensor=false&language={{ (Session::get('language')) ? Session::get('language') : $default_language[0]->value }}"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{site_setting('google_api_key')}}&libraries=places&sensor=false&language={{ (Session::get('language')) ? Session::get('language') : $default_language[0]->value }}"></script>
 <script src="{{asset('messages.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/store_detail.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/driver.js')}}" type="text/javascript"></script>

@@ -2301,6 +2301,7 @@ class EaterController extends Controller {
 			5 => 'More store',
 
 		];
+		
 
 		$user = User::with(
 			['store' => function ($query) use ($price, $dietary, $type, $sort) {
@@ -2314,6 +2315,10 @@ class EaterController extends Controller {
 			});
 
 		})->status();
+
+
+
+
 
 		if ($type == 0) {
 
@@ -2341,7 +2346,7 @@ class EaterController extends Controller {
 						});
 
 					}
-
+/*
 					if (count($dietary) > 0 && $dietary != '') {
 
 						$query->whereHas('store_category', function ($query) use ($dietary) {
@@ -2350,7 +2355,7 @@ class EaterController extends Controller {
 
 						});
 
-					}
+					}*/
 
 				});
 
@@ -2411,6 +2416,7 @@ class EaterController extends Controller {
 
 			} else {
 
+
 				$date = \Carbon\Carbon::today()->subDays(10);
 
 				$min_time = $request->min_time ? convert_format($request->min_time) : '00:20:00';
@@ -2446,10 +2452,13 @@ class EaterController extends Controller {
 			}
 
 		}
+		
 
 		$user = $this->common_map($store);
 
 		$user = (count($user) > 0) ? $user->toArray() : array(); // more store
+
+
 
 		return response()->json(
 			[
@@ -2463,6 +2472,7 @@ class EaterController extends Controller {
 				'page_count' => $page_count,
 
 				'search_text' => $search[$type],
+				
 
 			]
 		);

@@ -108,7 +108,83 @@
 
   $("select").wrap('<div class="select"></div>');
 </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script type="text/javascript">
+
+        
+  function googleTranslateElementInit()
+  {
+
+
+    var placeholders = document.querySelectorAll('[placeholder]');
+
+
+    if (placeholders.length >= 0) {
+      // convert to array
+      placeholders = Array.prototype.slice.call(placeholders);
+
+      // copy placeholder text to a hidden div
+      var div = $('<div id="placeholders" style="visibility:hidden;"></div>');
+
+      placeholders.forEach(function(input) {
+        var text = input.placeholder;
+        div.append('<div>' + text + '</div>');    
+      });
+      $('body').append(div);
+
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+
+    }
+    if(placeholders[0] == undefined) {
+      var originalPH = '';
+    }
+    else {
+      var originalPH = placeholders[0].placeholder; 
+    }
+      // save the first placeholder in a closure
+
+      // check for changes and update as needed
+      setInterval(function() {
+        if (isTranslated() || $('.goog-te-combo').val() == 'en' || $('.goog-te-combo').val() == '') {
+          updatePlaceholders();
+          originalPH = placeholders[0].placeholder;
+        }
+      }, 500);
+      
+      // hoisted
+      function isTranslated()
+      {
+        var currentPH = $($('#placeholders > div')[0]).text();
+        return !(originalPH == currentPH);
+      }
+      
+      function updatePlaceholders()
+      {
+        $('#placeholders > div').each(function(i, div){
+          placeholders[i].placeholder = $(div).text();
+        });
+        $('#placeholders').hide();
+      }
+  }
+
+  function preventBack()
+  {
+    previous_url = document.referrer.substr(document.referrer.lastIndexOf('/') + 1)
+    if (previous_url == "signin" || previous_url == "" || previous_url == "signin_company") {
+      window.history.forward();
+    }
+  }
+  setTimeout("preventBack()", 0);
+
+  
+
+</script>
+
+
+
 
 @stack('scripts')
 
 </html>
+

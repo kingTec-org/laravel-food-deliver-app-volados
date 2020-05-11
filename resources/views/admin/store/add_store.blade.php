@@ -157,7 +157,10 @@
   {!! Form::text('latitude','',['value'=>'','id'=>'addresss_latitude','ng-model'=>'latitude'])!!}
   {!! Form::text('longitude','',['value'=>'','id'=>'addresss_longitude','ng-model'=>'longitude'])!!}
 </div>
+
 <div class="row">
+  <input type="hidden" name="latitude" class="addresss_latitude" value="">
+<input type="hidden" name="longitude" class="addresss_longitude" value="">
   <label class="col-md-2 col-form-label">
    @lang('admin_messages.banner_image')
    <span class="required text-danger">*</span>
@@ -228,7 +231,7 @@
 <div ng-repeat="document in all_document" ng-cloak>
   <p ng-show="all_document.length > 1" style="float: right">
     <a href="javascript:void(0)" ng-click="delete_document($index)">
-      <i class="material-icons btn-red">delete</i>
+      <i class="material-icons notranslate btn-red">delete</i>
     </a>
   </p>
   <div class="row">

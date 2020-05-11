@@ -95,6 +95,7 @@
 
         <div class="row">
             <div class="col-md-12">
+                <p style="text-align:center;font-size: 20px;">Earnings for {{date('Y')}}</p>
             <center>
                  {!! $earning_chart->render() !!}
                  </center>

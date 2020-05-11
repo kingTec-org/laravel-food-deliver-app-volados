@@ -16,7 +16,7 @@ class MetasDataTable extends DataTable {
 
 		return datatables($query)
 			->addColumn('action', function ($query) {
-				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.meta_edit', $query->id) . '" ><i class="material-icons">edit</i></a>';
+				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.meta_edit', $query->id) . '" ><i class="material-icons notranslate">edit</i></a>';
 			})
 			->addColumn('page', function ($query) {
 				return $query->url;

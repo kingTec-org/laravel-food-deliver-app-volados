@@ -29,7 +29,7 @@ class PreDayPayoutDataTable extends DataTable {
 					
 				}
 
-				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.payout_day', ['store_id' => $query[0]->user_id, 'date' => $date]) . '" ><i class="material-icons">library_books</i></a>';
+				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.payout_day', ['store_id' => $query[0]->user_id, 'date' => $date]) . '" ><i class="material-icons notranslate">library_books</i></a>';
 			})
 			->addColumn('total_amount', function ($query) {
 				$total = 0;

@@ -16,7 +16,7 @@ class CategoryDataTable extends DataTable {
 
 		return datatables($query)
 			->addColumn('action', function ($query) {
-				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_category', $query->id) . '" ><i class="material-icons">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_category', $query->id) . '"><i class="material-icons">close</i></a>';
+				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_category', $query->id) . '" ><i class="material-icons notranslate">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_category', $query->id) . '"><i class="material-icons notranslate">close</i></a>';
 			})
 			->addColumn('is_top', function ($query) {
 				$class = $query->is_top==1?"success":"danger";

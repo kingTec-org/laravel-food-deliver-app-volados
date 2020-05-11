@@ -49,8 +49,8 @@ class TokenAuthController extends Controller {
             }
             else
             {
-                App::setLocale('en');
-                $language = 'en';
+                App::setLocale('es');
+                $language = 'es';
             }
 
 		$rules = array(

@@ -47,7 +47,7 @@ class PayoutDayReportDataTable extends DataTable {
 				return @$query->get_driver_payout('status_text');
 			})
 			->addColumn('action', function ($query) {
-				return '<a title="' . trans('admin_messages.view') . '" href="' . route('admin.view_order', $query->id) . '" ><i class="material-icons">library_books</i></a>';
+				return '<a title="' . trans('admin_messages.view') . '" href="' . route('admin.view_order', $query->id) . '" ><i class="material-icons notranslate">library_books</i></a>';
 
 			});
 

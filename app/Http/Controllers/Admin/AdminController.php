@@ -123,7 +123,7 @@ class AdminController extends Controller {
 		$amount = array_column($data, 'amount');
 
 		$this->view_data['earning_chart'] = Charts::multi('line', 'highcharts')
-			->title("Earnings for " . date('Y'))
+			->title(" ")
 			->dimensions(0, 500)
 			->elementLabel(" ")
 			->dataset('Earnings', $amount)

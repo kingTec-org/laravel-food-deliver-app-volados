@@ -16,7 +16,7 @@ class CurrencyDataTable extends DataTable {
 
 		return datatables($query)
 			->addColumn('action', function ($query) {
-				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_currency', $query->id) . '" ><i class="material-icons">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_currency', $query->id) . '"><i class="material-icons">close</i></a>';
+				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_currency', $query->id) . '" ><i class="material-icons notranslate">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_currency', $query->id) . '"><i class="material-icons notranslate">close</i></a>';
 			})
 			->addColumn('currency_status', function ($query) {
 				return $query->currency_status;

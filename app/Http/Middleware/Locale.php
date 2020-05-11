@@ -24,6 +24,7 @@ class Locale {
 		
         $session_language = Language::translatable()->where('value', '=', Session::get('language'))->first();
 
+
         if ($session_language) {
             $locale = $session_language->value;
         }

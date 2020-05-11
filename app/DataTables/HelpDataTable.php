@@ -42,7 +42,7 @@ class HelpDataTable extends DataTable
                 return $help->category->type_text;
             })
             ->addColumn('action', function ($help) {
-                return '<a title="' . trans('admin_messages.edit_help') . '" href="' . route('admin.edit_help', $help->id) . '" ><i class="material-icons">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete_help') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_help', $help->id) . '"><i class="material-icons">close</i></a>';
+                return '<a title="' . trans('admin_messages.edit_help') . '" href="' . route('admin.edit_help', $help->id) . '" ><i class="material-icons notranslate">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete_help') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_help', $help->id) . '"><i class="material-icons notranslate">close</i></a>';
             });
            
     }

@@ -138,7 +138,7 @@ class UserController extends Controller {
 				return @$users->created_at;
 			})
 			->addColumn('action', function ($users) {
-				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_user', $users->id) . '" ><i class="material-icons">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_user', $users->id) . '"><i class="material-icons">close</i></a>';
+				return '<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_user', $users->id) . '" ><i class="material-icons notranslate">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_user', $users->id) . '"><i class="material-icons notranslate">close</i></a>';
 			});
 		$columns = ['id', 'first_name','last_name', 'email', 'status', 'created_at'];
 		$base = new DataTableBase($users, $datatable, $columns,'Users');

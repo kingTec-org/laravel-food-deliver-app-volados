@@ -202,7 +202,7 @@ class DriverController extends Controller {
 				return @$driver->created_at;
 			})
 			->addColumn('action', function ($driver) {
-				return '<a title="' . trans('admin_messages.driver_request') . '" href="' . route('admin.driver_request', $driver->id) . '" ><i class="material-icons"><i className="material-icons">phonelink_ring</i></i></a>&nbsp;<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_driver', $driver->id) . '" ><i class="material-icons">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_driver', $driver->id) . '"><i class="material-icons">close</i></a>';
+				return '<a title="' . trans('admin_messages.driver_request') . '" href="' . route('admin.driver_request', $driver->id) . '" ><i class="material-icons notranslate"><i className="material-icons notranslate">phonelink_ring</i></i></a>&nbsp;<a title="' . trans('admin_messages.edit') . '" href="' . route('admin.edit_driver', $driver->id) . '" ><i class="material-icons notranslate">edit</i></a>&nbsp;<a title="' . trans('admin_messages.delete') . '" href="javascript:void(0)" class="confirm-delete" data-href="' . route('admin.delete_driver', $driver->id) . '"><i class="material-icons notranslate">close</i></a>';
 			});
 		$columns = ['id', 'name', 'email', 'status', 'created_at'];
 		$base = new DataTableBase($driver, $datatable, $columns,'Drivers');

@@ -35,7 +35,7 @@ class PayoutDataTable extends DataTable {
 					$end_date = date('d-m-Y', strtotime($date['week_end']));
 				}
 
-				return '<a title="' . trans('admin_messages.view') . '" href="' . route('admin.payout_per_day', ['store_id' => $query[0]->user_id, 'start_date' => $start_date, 'end_date' => $end_date]) . '" ><i class="material-icons">library_books</i></a>';
+				return '<a title="' . trans('admin_messages.view') . '" href="' . route('admin.payout_per_day', ['store_id' => $query[0]->user_id, 'start_date' => $start_date, 'end_date' => $end_date]) . '" ><i class="material-icons notranslate">library_books</i></a>';
 			})
 			->addColumn('total_amount', function ($query) {
 				$total = 0;

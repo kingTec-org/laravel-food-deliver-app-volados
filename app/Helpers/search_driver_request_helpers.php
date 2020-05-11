@@ -65,7 +65,8 @@ if (!function_exists("searchRequestDriver")) {
 
 			$support_mobile = site_setting('site_support_phone');
 			$store = $order->store->user;
-			$push_notification_title = trans('api_messages.orders.no_drivers_found') . $order->id;
+			$push_notification_title = trans('api_messages.orders.no_drivers_found');
+			//trans('api_messages.orders.no_drivers_found') . $order->id;
 			$push_notification_data = [
 				'type' => 'no_drivers_found',
 				'order_id' => $order->id,

@@ -5147,7 +5147,21 @@ table.text-center th {
   color: #000;
   width: 100%;
 }
-
+.goog-te-gadget .goog-te-combo {
+    width: 100%;
+    height: 32px;
+    padding: 5px;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+}
+#google_translate_element {
+    padding: 0 15px;
+}
+table.dataTable > thead > tr > th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .driver_list {
   margin-top: 5px;
 }
