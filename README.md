@@ -26,6 +26,7 @@ Password: gofergrocery
 
 ## Get Started
 
+Composer install
 ```sh
 $ composer install
 ```
@@ -38,6 +39,11 @@ $ php artisan key:generate
 Laravel storage link
 ```sh
 $ php artisan storage:link
+```
+
+Laravel database migrate and seed
+```sh
+$ php artisan migrate --seed
 ```
 
 Run serve
